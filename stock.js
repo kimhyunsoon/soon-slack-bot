@@ -399,12 +399,12 @@ const sendChart = async () => {
   }
 }
 
-const sendMsgWork = schedule.scheduleJob('0 0 9-16 * * MON-FRI', async () => {
+const sendMsgWork = schedule.scheduleJob('0 * 9-16 * * MON-FRI', async () => {
   sendMsg();
 });
-const makeChartWork = schedule.scheduleJob('0 1 16 * * FRI', async () => {
+const makeChartWork = schedule.scheduleJob('10 * 16 * * FRI', async () => {
   makeChart();
 });
-const sendChartWork = schedule.scheduleJob('0 2 16 * * FRI', async () => {
+const sendChartWork = schedule.scheduleJob('40 * 16 * * FRI', async () => {
   sendChart();
 });
