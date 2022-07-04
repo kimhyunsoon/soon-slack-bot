@@ -359,9 +359,9 @@ const makeChart = async () => {
     samsung_chart.toFile('./chart/samung.png');
     nasdaq_chart.toFile('./chart/nasdap.png');
     snp_chart.toFile('./chart/snp.png');
-    console.log('MAKE CHART SUCCESS');
+    log.info('MAKE CHART SUCCESS');
   } catch (error) {
-    console.log('MAKE CHART ERROR');
+    log.error('MAKE CHART ERROR');
     console.log(error);
   }
 }
@@ -392,9 +392,9 @@ const sendChart = async () => {
       file: createReadStream('./chart/snp.png'),
       filename: 'snp.png',
     });
-    console.log('SEND CHART SUCCESS');
+    log.info('SEND CHART SUCCESS');
   } catch (error) {
-    console.log('SEND CHART ERROR');
+    log.error('SEND CHART ERROR');
     console.log(error);
   }
 }

@@ -1,9 +1,9 @@
 import { WebClient } from '@slack/web-api';
 import schedule from 'node-schedule';
 import moment from 'moment';
-import keys from './slack-key.js'
+import slack from './slack-key.js'
 
-const web = new WebClient(keys.lunch);
+const web = new WebClient(slack.bot_token);
 
 const days = ['일', '월', '화', '수', '목', '금', '토'];
 
