@@ -3,7 +3,7 @@ import schedule from 'node-schedule';
 import moment from 'moment';
 import slack from './slack-key.js'
 
-const web = new WebClient(slack.bot_token);
+const web = new WebClient(slack.lunch.bot_token);
 
 const days = ['일', '월', '화', '수', '목', '금', '토'];
 
@@ -50,11 +50,12 @@ let lastNumbers = [];
 const getLastNumbers = async () => {
   lastNumbers = [];
   const history = await getHistory();
-  const filter = history.messages.filter((r) => r.bot_id === 'B03HCCTV6J1')
+  const filter = history.messages.filter((r) => r.bot_id === slack.lunch.bot_id || r.bot_id === 'B03HCCTV6J1')
     .slice(0, 10).reduce((acc, r) => {
       acc.push(r.text.split('\n')[1].split(' / ')[0]);
       return acc;
     }, []);
+  
   list.forEach((r, i) => {
     if (filter.indexOf(r.name) !== -1) lastNumbers.push(i);  
   })
@@ -73,17 +74,17 @@ const getMenu = async () => {
 
 const getHistory = async () => {
   const history = await web.conversations.history({
-    channel: 'C03HF9FFBDZ',
+    channel: slack.lunch.channel,
   });
-  console.log(history);
+  // console.log(history);
   return history;
 }
 
-const scheduledr = schedule.scheduleJob('0 0 11 * * MON-FRI', async () => {
+const scheduledr = schedule.scheduleJob('0 * 11 * * MON-FRI', async () => {
   const menu = await getMenu();
   const date = `${moment(new Date()).format('MM월 DD일')} ${days[moment().day()]}요일`;
   web.chat.postMessage({
-    channel: 'C03HF9FFBDZ',
+    channel: slack.lunch.channel,
     text: `${date} 추천 메뉴는 '${menu.category}' 입니다.\n${menu.name} / ${menu.location}(${menu.far}m)`,
     as_user: true
   });
@@ -94,13 +95,13 @@ const scheduledr = schedule.scheduleJob('0 0 11 * * MON-FRI', async () => {
 
 // web.chat.delete({
 //   ts: '1656563159.505299',
-//   channel: 'C03HF9FFBDZ',
+//   channel: slack.lunch.channel,
 // })
 
 // const menu = list[17];
 // const date = `${moment(new Date()).format('MM월 DD일')} ${days[moment().day()]}요일`;
 // web.chat.postMessage({
-//   channel: 'C03HF9FFBDZ',
+//   channel: slack.lunch.channel,
 //   text: `${date} 추천 메뉴는 '${menu.category}' 입니다.\n${menu.name} / ${menu.location}(${menu.far}m)`,
 //   as_user: true
 // });
