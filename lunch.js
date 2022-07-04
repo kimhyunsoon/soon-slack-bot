@@ -80,7 +80,7 @@ const getHistory = async () => {
   return history;
 }
 
-const scheduledr = schedule.scheduleJob('0 * 11 * * MON-FRI', async () => {
+const scheduledr = schedule.scheduleJob('0 0 11 * * MON-FRI', async () => {
   const menu = await getMenu();
   const date = `${moment(new Date()).format('MM월 DD일')} ${days[moment().day()]}요일`;
   web.chat.postMessage({
