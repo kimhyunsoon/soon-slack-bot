@@ -408,3 +408,14 @@ const makeChartWork = schedule.scheduleJob('0 1 16 * * FRI', async () => {
 const sendChartWork = schedule.scheduleJob('0 2 16 * * FRI', async () => {
   sendChart();
 });
+
+// const remover = async () => {
+//   const gg = (await getHistory()).messages;
+//   const tt = gg.filter((r, i) => i < 3);
+//   console.log(tt);
+//   await web.chat.delete({
+//     channel: slack.stock.channel,
+//     ts: '1656897544.052789',
+//   })
+// }
+// remover();
