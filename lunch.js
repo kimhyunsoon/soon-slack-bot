@@ -45,6 +45,8 @@ const list = [
   { location: '씨티플라자', far: 252, name: '완백부대찌개', category: '부대찌개' },
   { location: 'IFC', far: 108, name: '남기분면', category: '홍콩쌀국수' },
   { location: 'S-Trenue', far: 371, name: '난바우동', category: '우동' },
+  { location: '포스트타워', far: 432, name: '제주은희네해장국', category: '해장국' },
+  { location: 'S-Trenue', far: 371, name: '와인주막차차', category: '퓨전한식' },
 ];
 
 let lastNumbers = [];
