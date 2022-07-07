@@ -43,6 +43,8 @@ const list = [
   { location: '율촌빌딩', far: 290, name: '바스버거', category: '햄버거' },
   { location: '메리츠화재여의도사옥', far: 293, name: '사보텐', category: '일식돈까스우동' },
   { location: '씨티플라자', far: 252, name: '완백부대찌개', category: '부대찌개' },
+  { location: 'IFC', far: 108, name: '남기분면', category: '홍콩쌀국수' },
+  { location: 'S-Trenue', far: 371, name: '난바우동', category: '우동' },
 ];
 
 let lastNumbers = [];
