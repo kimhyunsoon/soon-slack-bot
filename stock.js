@@ -415,7 +415,7 @@ const sendChartWork = schedule.scheduleJob('0 2 16 * * FRI', async () => {
 //   console.log(tt);
 //   await web.chat.delete({
 //     channel: slack.stock.channel,
-//     ts: '1656897544.052789',
+//     ts: '1657263721.472539',
 //   })
 // }
 // remover();

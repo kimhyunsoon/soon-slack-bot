@@ -47,6 +47,9 @@ const list = [
   { location: 'S-Trenue', far: 371, name: '난바우동', category: '우동' },
   { location: '포스트타워', far: 432, name: '제주은희네해장국', category: '해장국' },
   { location: 'S-Trenue', far: 371, name: '와인주막차차', category: '퓨전한식' },
+  { location: 'S-Trenue', far: 371, name: '미미쌀국수', category: '쌀국수' },
+  { location: '파이낸스타워', far: 310, name: '사위식당', category: '낙곱새' },
+  { location: 'IFC', far: 108, name: '히클리밥', category: '한상밥집' },
 ];
 
 let lastNumbers = [];
