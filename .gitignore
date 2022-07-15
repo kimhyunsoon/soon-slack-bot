@@ -24,3 +24,4 @@ pnpm-debug.log*
 
 slack-key.js
 /chart
+run.sh
